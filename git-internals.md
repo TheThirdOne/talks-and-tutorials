@@ -1,15 +1,13 @@
 Git Internals
 =============
 
-What you will understand by the end of this talk.
-
+What you will understand by the end of this talk.  
   - git init
   - git add
   - git commit
   - git branch
   - git checkout
   - git reset
-
   - git clone
   - git push
   - git pull
@@ -68,7 +66,7 @@ git add content
 ```
 
 <pre>
-   \*
+   *
    |
    a (master)(HEAD)
 ---|---
@@ -104,7 +102,7 @@ git add content
 ```
 
 <pre>
-   \*
+   *
    |
    b (master) (feature*) (HEAD)
    |
@@ -170,7 +168,7 @@ git add master_stuff
 ```
 
 <pre>
-(feature)c   \*
+(feature)c   *
           \ /
            b  (master*) (HEAD)
            |
@@ -267,7 +265,7 @@ This is what github looks like
 Main:                        Server:
    e (feature)                   e (feature)
   / \                           / \
- c   d (master\*)(HEAD) [v1.0]  c   d (master\*)(HEAD) [v1.0]
+ c   d (master*)(HEAD) [v1.0]  c   d (master*)(HEAD) [v1.0]
   \ /                           \ /
    b                             b
    |                             |
@@ -286,7 +284,7 @@ cd peer
 Main:                        Server:                        Peer:
    e (feature)                   e (feature)                   e (feature)(origin/feature)
   / \                           / \                           / \
- c   d (master\*)(HEAD) [v1.0]  c   d (master\*)(HEAD) [v1.0]  c   d (master*)(origin/master)(HEAD)(origin/HEAD) [v1.0]
+ c   d (master*)(HEAD) [v1.0]  c   d (master*)(HEAD) [v1.0]  c   d (master*)(origin/master)(HEAD)(origin/HEAD) [v1.0]
   \ /                           \ /                           \ /
    b                             b                             b
    |                             |                             |
@@ -305,9 +303,9 @@ git add peer_stuff
 Main:                        Server:                        Peer:
                                                                *
                                                                |
-   e (feature)                   e (feature)                   e (feature\*)(origin/feature)(HEAD)
+   e (feature)                   e (feature)                   e (feature*)(origin/feature)(HEAD)
   / \                           / \                           / \
- c   d (master\*)(HEAD) [v1.0]  c   d (master\*)(HEAD) [v1.0]  c   d (master)(origin/master)(origin/HEAD) [v1.0]
+ c   d (master*)(HEAD) [v1.0]  c   d (master*)(HEAD) [v1.0]  c   d (master)(origin/master)(origin/HEAD) [v1.0]
   \ /                           \ /                           \ /
    b                             b                             b
    |                             |                             |
@@ -319,11 +317,11 @@ Main:                        Server:                        Peer:
 
 <pre>
 Main:                        Server:                        Peer:
-                                                               f (feature\*)(HEAD)
+                                                               f (feature*)(HEAD)
                                                                |
    e (feature)                   e (feature)                   e (origin/feature)
   / \                           / \                           / \
- c   d (master\*)(HEAD) [v1.0]  c   d (master\*)(HEAD) [v1.0]  c   d (master)(origin/master)(origin/HEAD) [v1.0]
+ c   d (master*)(HEAD) [v1.0]  c   d (master*)(HEAD) [v1.0]  c   d (master)(origin/master)(origin/HEAD) [v1.0]
   \ /                           \ /                           \ /
    b                             b                             b
    |                             |                             |
@@ -340,11 +338,11 @@ git checkout feature
 
 <pre>
 Main:                                 Server:                        Peer:
-                                                                        f (feature\*)(HEAD)
+                                                                        f (feature*)(HEAD)
                                                                         |
    e (feature*)(o/feature)(HEAD)          e (feature)                   e (origin/feature)
   / \                                    / \                           / \
- c   d (master) (o/master)(o/HEAD)[v1.0] c   d (master\*)(HEAD) [v1.0]  c   d (master)(origin/master)(origin/HEAD) [v1.0]
+ c   d (master) (o/master)(o/HEAD)[v1.0]c   d (master*)(HEAD) [v1.0]  c   d (master)(origin/master)(origin/HEAD) [v1.0]
   \ /                                    \ /                           \ /
    b                                      b                             b
    |                                      |                             |
@@ -359,11 +357,11 @@ git commit -m "original edit"
 ```
 <pre>
 Main:                                 Server:                        Peer:
-   g (feature*)(HEAD)                                                   f (feature\*)(HEAD)
+   g (feature*)(HEAD)                                                   f (feature*)(HEAD)
    |                                                                    |
    e (o/feature)                          e (feature)                   e (origin/feature)
   / \                                    / \                           / \
- c   d (master)(o/master)(o/HEAD)[v1.0]  c   d (master\*)(HEAD) [v1.0]  c   d (master)(origin/master)(origin/HEAD) [v1.0]
+ c   d (master)(o/master)(o/HEAD)[v1.0] c   d (master*)(HEAD) [v1.0]  c   d (master)(origin/master)(origin/HEAD) [v1.0]
   \ /                                    \ /                           \ /
    b                                      b                             b
    |                                      |                             |
