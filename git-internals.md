@@ -94,7 +94,7 @@ lets branch
 `git branch feature`
 
 <pre>
-   b (master) (feature*) (HEAD)
+   b (master) (feature) (HEAD)
    |
    a
 ---|---
@@ -120,33 +120,37 @@ git add content
 `git commit -m "added more BRANCHES"`
 
 <pre>
-   c (feature*) (HEAD)
+   c (master*) (HEAD)
    |
-   b (master)
-   |
-   a
----|---
-</pre>
-
-Now that we have tested our feature we should merge back into master. First we have to move onto master though.
-
-`git checkout master`
-
-<pre>
-   c (feature)
-   |
-   b (master*) (HEAD)
+   b (feature)
    |
    a
 ---|---
 </pre>
 
-Now we merge in changes from feature now.
+But ... why didn't feature move up? The answer is that only the the current branch moves with HEAD. (denoted with *)
 
-`git merge feature`
+We should bring the feature branch back up to date with master
+
+`git checkout feature`
+
+That allows us to move HEAD to feature and select it as the current branch 
 
 <pre>
-   c (feature) (master*) (HEAD)
+   c (master)
+   |
+   b (feature*) (HEAD)
+   |
+   a
+---|---
+</pre>
+
+Now we merge in changes from master now.
+
+`git merge master`
+
+<pre>
+   c (feature*) (master) (HEAD)
    |
    b
    |
@@ -154,9 +158,13 @@ Now we merge in changes from feature now.
 ---|---
 </pre>
 
+
 We should move back a commit to make the demonstration cleaner
 
-`git reset --hard HEAD^` HEAD^ means one commit behind HEAD
+```
+git checkout master
+git reset --hard HEAD^
+``` HEAD^ means one commit behind HEAD
 
 <pre>
    c (feature)
