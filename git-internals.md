@@ -2,15 +2,18 @@ Git Internals
 =============
 
 What you will understand by the end of this talk.  
-  - git init
-  - git add
-  - git commit
-  - git branch
-  - git checkout
-  - git reset
-  - git clone
-  - git push
-  - git pull
+
+  - **git init:**     start the base of a repository
+  - **git add:**      add files to the staging area
+  - **git commit:**   wrap the staging area in a commit
+  - **git status:**   show staging area and current direcory
+  - **git log:**      show logs from previous commits 
+  - **git branch:**   create branches 
+  - **git checkout:** move HEAD
+  - **git reset:**    generic move branch command
+  - **git clone:**    clones a remote repository
+  - **git push:**     sends objects to a remote
+  - **git pull:**     request new objects from a remote
 
 We're going to start by making a directory to put the repo in.
 
@@ -28,6 +31,8 @@ But what did that really do?
 `ls -a`
 
 So we see that it made a .git directory. Nothing magical. A git repo is simply a structured filesystem.
+
+From now on ---|--- represents a blank repository.
 
 <pre>
 ---|---
@@ -58,6 +63,8 @@ Now we should commit it.
 ---|---
 </pre>
 
+The first commit in a repo is special in that it creates the branch master when you do so.
+
 Lets do that again.
 
 ```
@@ -81,7 +88,7 @@ git add content
 ---|---
 </pre>
 
-
+As you can see the id of the new commit is different from the previous; commit ids can never collide.
 lets branch
 
 `git branch feature`
