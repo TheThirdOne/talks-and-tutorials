@@ -52,7 +52,7 @@ What did that command do?
 ---|---
 </pre>
 
-The conetent has been staged and added to the repository.
+The content has been staged and added to the repository.
 
 Now we should commit it.
 
@@ -164,7 +164,9 @@ We should move back a commit to make the demonstration cleaner
 ```
 git checkout master
 git reset --hard HEAD^
-``` HEAD^ means one commit behind HEAD
+```
+
+HEAD^ means one commit behind HEAD
 
 <pre>
    c (feature)
